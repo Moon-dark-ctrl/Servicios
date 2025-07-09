@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Servicio JSON con Videojuego</title>
+</head>
+<body>
+    <h2>Servicio JSON con Videojuego</h2>
+    <button onclick="mostrarDatos()">Mostrar Videojuego</button>
+
+    <script>
+    function mostrarDatos() {
+        fetch('videojuego.php')
+        .then(response => response.json())
+        .then(data => {
+            // Cambiamos el alert para mostrar los nuevos datos
+            alert(
+                "Título: " + data.titulo + "\n" +
+                "Desarrollador: " + data.desarrollador + "\n" +
+                
+            );
+        })
+        .catch(error => {
+            console.error('Error:', error);
+            alert("Hubo un error al obtener los datos.");
+        });
+    }
+    </script>
+</body>
+</html>
