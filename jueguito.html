@@ -2,16 +2,38 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <title>Juego de Adivinanza</title>
+    <title>Juego de Adivinanza con JSON externo</title>
+    <link rel="stylesheet" href="pera.css">
 </head>
 <body>
     <h2>Juego de Adivinanza</h2>
-    <form action="game.php|" method="post">
-        <p>Blanca por dentro, verde por fuera. Si quieres que te lo diga, espera...</p>
-        <label for="respuesta">¿Qué es?:</label>
-        <input type="text" id="respuesta" name="respuesta">
-        <br><br>
-        <input type="submit" value="Comprobar">
-    </form>
+    <p id="adivinanza"></p>
+
+    <label for="respuesta">¿Qué es?:</label>
+    <input type="text" id="respuesta">
+    <button onclick="comprobar()">Comprobar</button>
+
+    <script>
+    let adivinanza = {};
+
+    // Cargar el JSON externo
+    fetch('game.json')
+        .then(response => response.json())
+        .then(data => {
+            adivinanza = data;
+            document.getElementById("adivinanza").innerText = adivinanza.pregunta;
+        })
+        .catch(error => console.error('Error al cargar el JSON:', error));
+
+    function comprobar() {
+        const input = document.getElementById("respuesta").value.trim().toLowerCase();
+
+        if (input === adivinanza.respuesta) {
+            alert("¡Correcto! 🎉 Es una pera.");
+        } else {
+            alert("No es correcto. 😅 Intenta de nuevo.");
+        }
+    }
+    </script>
 </body>
 </html>
