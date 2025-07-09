@@ -1,0 +1,55 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh; /* Ensures the body takes at least the full viewport height */
+    margin: 0;
+    background-color: #e9f2f9; /* A soft, light blue background */
+    color: #333; /* Dark gray for general text */
+    line-height: 1.6;
+}
+
+h2 {
+    color: #2c3e50; /* Darker blue-gray for the heading */
+    margin-bottom: 25px;
+    font-size: 2em; /* Larger heading */
+    text-align: center;
+}
+
+button {
+    padding: 12px 25px;
+    font-size: 1.1em;
+    color: #fff;
+    background-color: #3498db; /* A vibrant blue */
+    border: none;
+    border-radius: 8px; /* Slightly more rounded corners */
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease; /* Smooth transition for hover effects */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+    outline: none; /* Remove outline on focus */
+}
+
+button:hover {
+    background-color: #2980b9; /* Darker blue on hover */
+    transform: translateY(-2px); /* Slight lift effect on hover */
+}
+
+button:active {
+    background-color: #206da0; /* Even darker blue on click */
+    transform: translateY(0); /* Return to original position on click */
+}
+
+a {
+    margin-top: 20px; /* Space above the link */
+    color: #3498db; /* Match link color to button */
+    text-decoration: none; /* Remove underline */
+    font-size: 0.95em;
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: #2980b9; /* Darker blue on hover */
+    text-decoration: underline; /* Underline on hover */
+}
