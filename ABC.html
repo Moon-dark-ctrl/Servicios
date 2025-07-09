@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Nano Team</title>
+    <link rel="stylesheet" href="i2.css">
+</head>
+<body>
+    <h2>Video Juego</h2>
+    <button onclick="ejecuta()">Resultado</button>
+
+    <script>
+    async function ejecuta() {
+        try {
+            const response = await fetch('videojuego.php');
+            const data = await response.json();
+
+        // Mostrar en un alert igual que en el ejemplo
+        alert(
+                "Título: " + data.titulo + "\n" +
+                "Plataforma: " + data.plataforma + "\n" +
+                "Año de Lanzamiento: " + data.añoLanzamiento
+            );
+        } catch (error) {
+            console.error('Error:', error);
+            alert("Hubo un error al obtener los datos.");
+        }
+    }
+        
+    </script>
+</body>
+</html>
